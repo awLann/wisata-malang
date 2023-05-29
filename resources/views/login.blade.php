@@ -16,24 +16,45 @@
     <section>
         <div class="form-container">
             <h1>Log In</h1>
-            <form action="#">
+            <form action="" method="POST">
+                <?php
+                session_start();
+                if (isset($_SESSION['error_code'])) {
+                    $error_code = $_SESSION['error_code'];
+                    unset($_SESSION['error_code']);
+                }
+                if (isset($_SESSION['error_message'])) {
+                    $error_message = $_SESSION['error_message'];
+                    unset($_SESSION['error_message']);
+                }
+                ?>
+                <?php if (isset($error_code)) : ?>
+                    <p class="error">
+                        <?php echo "Error code: " . $error_code; ?>
+                    </p>
+                <?php endif; ?>
+                <?php if (isset($error_message)) : ?>
+                    <p class="error">
+                        <?php echo $error_message; ?>
+                    </p>
+                <?php endif; ?>
                 <div class="control">
                     <label for="name">Name</label>
-                    <input type="text" name="name" id="name" />
+                    <input type="username" name="username" id="name" />
                 </div>
                 <div class="control">
                     <label for="pass">Password</label>
-                    <input type="password" name="pass" id="pass" />
+                    <input type="password" name="password" id="pass" />
                 </div>
                 <span><input type="checkbox" /> Remember me.</span>
                 <div class="control">
-                    <input type="submit" value="Login" formaction="home" />
+                    <input type="submit" value="Login" formaction="login_handle.php" />
                 </div>
                 <div class="link">
                     <a href="#">Forgot password?</a>
                 </div>
                 <div class="link">
-                    <a href="#">Create account</a>
+                    <a href="register.php">Create account</a>
                 </div>
             </form>
         </div>
