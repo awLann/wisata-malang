@@ -30,7 +30,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="home">
+                <a class="navbar-brand" href="index.php">
                     <img src="assetscontent/img/logo-wm.png" class="logo logo-display" alt="wisatamalang" style="width : 80%">
                     <img src="assetscontent/img/logo-wm.png" class="logo logo-scrolled" alt="wisatamalang" style="width : 80%">
                 </a>
@@ -44,8 +44,23 @@
 
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="br-right"><a href="login" style="color: black;"><i class="login-icon ti-user"></i><b>SIGN UP</b></a></li>
-                    <li class="br-right"><a href="login" style="color: black;"><i></i><b>LOG IN</b></a></li>
+                    <?php
+                    session_start(); // Start the session
+
+                    // Check if the 'username' key exists in the $_SESSION array
+                    if (!isset($_SESSION['username'])) {
+                    ?>
+                        <li><a href="register.php"><b>SIGN UP</b></a></li>
+                        <li><a href="login.php"><b>LOG IN</b></a></li>
+                    <?php
+                    } else {
+
+                    ?>
+                        <li><a><b>Welcome, <?php echo $_SESSION['username']; ?></b></a></li>
+                        <li><a href="logout.php"><b>LOG OUT</b></a></li>
+                    <?php
+                    }
+                    ?>
                 </ul>
 
             </div>
@@ -529,7 +544,25 @@
 
                                         </div>
 
+                                        <!-- Comment Textbox -->
+                                        <?php
+                                        if (!isset($_SESSION['username'])) {
+                                        ?>
+                                            <div></div>
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <form action="" method="post">
+                                                <h4>Comment</h4>
+                                                <textarea name="" id="" style="height: 100px; width: 750px; border-radius: 5px;"></textarea> <br>
+                                                <input type="submit" value="Submit" formaction="" style="color: #fff; background: crimson; border-radius: 5px;">
+                                            </form>
+                                        <?php
+                                        }
+                                        ?>
+
                                     </div>
+
                                 </div>
 
                             </div>
@@ -835,10 +868,10 @@
                         <div class="col-md-4 col-sm-4">
                             <h4 style="color: black;"><b>Featured Destination</b></h4>
                             <ul>
-                                <li><a href="content.html">Mount Bromo</a></li>
-                                <li><a href="content.html">Coban Rondo</a></li>
-                                <li><a href="content.html">Lembah Indah</a></li>
-                                <li><a href="content.html">Balekambang Beach</a></li>
+                                <li><a href="content.php">Mount Bromo</a></li>
+                                <li><a href="content.php">Coban Rondo</a></li>
+                                <li><a href="content.php">Lembah Indah</a></li>
+                                <li><a href="content.php">Balekambang Beach</a></li>
                             </ul>
                         </div>
                         <div class="col-md-4 col-sm-4">
