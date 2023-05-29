@@ -30,7 +30,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="home">
+                <a class="navbar-brand" href="index.php">
                     <img src="assetslisting/img/logo.png" class="logo logo-display" alt="wisatamalang" style="width : 80%">
                     <img src="assetslisting/img/logo.png" class="logo logo-scrolled" alt="wisatamalang" style="width : 80%">
                 </a>
@@ -44,8 +44,23 @@
 
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="br-right"><a href="login" style="color: black;"><i class="login-icon ti-user"></i><b>SIGN UP</b></a></li>
-                    <li class="br-right"><a href="login" style="color: black;"><i></i><b>LOG IN</b></a></li>
+                    <?php
+                    session_start(); // Start the session
+
+                    // Check if the 'username' key exists in the $_SESSION array
+                    if (!isset($_SESSION['username'])) {
+                    ?>
+                        <li><a href="register.php"><b>SIGN UP</b></a></li>
+                        <li><a href="login.php"><b>LOG IN</b></a></li>
+                    <?php
+                    } else {
+
+                    ?>
+                        <li><a><b>Welcome, <?php echo $_SESSION['username']; ?></b></a></li>
+                        <li><a href="logout.php"><b>LOG OUT</b></a></li>
+                    <?php
+                    }
+                    ?>
                 </ul>
 
             </div>
@@ -59,7 +74,7 @@
         <div class="container">
             <div class="page-title-wrap">
                 <h2>Nature Tourism</h2>
-                <p><a href="home" class="theme-cl">Home</a> | <span>Wisata Alam di Malang</span></p>
+                <p><a href="index.php" class="theme-cl">Home</a> | <span>Wisata Alam di Malang</span></p>
             </div>
         </div>
     </div>
@@ -383,7 +398,7 @@
 
                                     <div class="col-md-5 col-sm-5">
                                         <div class="hotel-box-image">
-                                            <a href="content">
+                                            <a href="content.php">
                                                 <img src="https://asset-a.grid.id/crop/0x0:0x0/x/photo/2022/07/16/tiket-masuk-wisata-gunung-bromo-20220716075301.jpg" class="img-responsive hotel-box-img" alt="">
                                             </a>
                                             <div class="entry-bookmark">
@@ -401,7 +416,7 @@
                                             <div class="box-inner-ellipsis">
                                                 <div style="margin: 0px; padding: 0px; border: 0px;">
                                                     <h3 class="entry-title">
-                                                        <a href="content">Gunung Bromo</a>
+                                                        <a href="content.php">Gunung Bromo</a>
                                                     </h3>
                                                     <div class="entry-content">
                                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
@@ -450,7 +465,7 @@
 
                                     <div class="col-md-5 col-sm-5">
                                         <div class="hotel-box-image">
-                                            <a href="content">
+                                            <a href="content.php">
                                                 <img src="https://media-cdn.tripadvisor.com/media/photo-s/16/57/f2/eb/berlokasi-di-timurnya.jpg" class="img-responsive hotel-box-img" alt="">
                                             </a>
                                             <div class="entry-bookmark">
@@ -467,7 +482,7 @@
                                             <div class="box-inner-ellipsis">
                                                 <div style="margin: 0px; padding: 0px; border: 0px;">
                                                     <h3 class="entry-title">
-                                                        <a href="content">Sumber Maron</a>
+                                                        <a href="content.php">Sumber Maron</a>
                                                     </h3>
                                                     <div class="entry-content">
                                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
@@ -516,7 +531,7 @@
 
                                     <div class="col-md-5 col-sm-5">
                                         <div class="hotel-box-image">
-                                            <a href="content">
+                                            <a href="content.php">
                                                 <img src="https://asset.kompas.com/crops/I7oFQpIqNNTHErjAoGMfvNL3asg=/0x0:1149x766/750x500/data/photo/2021/08/25/6126168e3be6b.jpg" class="img-responsive hotel-box-img" alt="">
                                             </a>
                                             <div class="entry-bookmark">
@@ -534,7 +549,7 @@
                                             <div class="box-inner-ellipsis">
                                                 <div style="margin: 0px; padding: 0px; border: 0px;">
                                                     <h3 class="entry-title">
-                                                        <a href="content">Coban Rondo</a>
+                                                        <a href="content.php">Coban Rondo</a>
                                                     </h3>
                                                     <div class="entry-content">
                                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
@@ -583,7 +598,7 @@
 
                                     <div class="col-md-5 col-sm-5">
                                         <div class="hotel-box-image">
-                                            <a href="content">
+                                            <a href="content.php">
                                                 <img src="https://sikidang.com/wp-content/uploads/Lembah-Indah-Malang.jpg" class="img-responsive hotel-box-img" alt="">
                                             </a>
                                             <div class="entry-bookmark">
@@ -601,7 +616,7 @@
                                             <div class="box-inner-ellipsis">
                                                 <div style="margin: 0px; padding: 0px; border: 0px;">
                                                     <h3 class="entry-title">
-                                                        <a href="content">Lembah Indah</a>
+                                                        <a href="content.php">Lembah Indah</a>
                                                     </h3>
                                                     <div class="entry-content">
                                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
@@ -650,7 +665,7 @@
 
                                     <div class="col-md-5 col-sm-5">
                                         <div class="hotel-box-image">
-                                            <a href="content">
+                                            <a href="content.php">
                                                 <img src="https://img.okezone.com/content/2021/01/30/408/2353645/camping-seru-di-bukit-nirwana-dengan-pesona-10-gunung-di-sekelilingnya-c2V9qrglsZ.jpg" class="img-responsive hotel-box-img" alt="">
                                             </a>
                                             <div class="entry-bookmark">
@@ -667,7 +682,7 @@
                                             <div class="box-inner-ellipsis">
                                                 <div style="margin: 0px; padding: 0px; border: 0px;">
                                                     <h3 class="entry-title">
-                                                        <a href="content">Bukit Nirwana</a>
+                                                        <a href="content.php">Bukit Nirwana</a>
                                                     </h3>
                                                     <div class="entry-content">
                                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
@@ -716,7 +731,7 @@
 
                                     <div class="col-md-5 col-sm-5">
                                         <div class="hotel-box-image">
-                                            <a href="content">
+                                            <a href="content.php">
                                                 <img src="https://asset.kompas.com/crops/HGlbthzzHaizmQYD3Eyfm5GTF-8=/0x0:739x493/750x500/data/photo/2020/07/26/5f1d21fd082c6.jpg" class="img-responsive hotel-box-img" alt="">
                                             </a>
                                             <div class="entry-bookmark">
@@ -734,7 +749,7 @@
                                             <div class="box-inner-ellipsis">
                                                 <div style="margin: 0px; padding: 0px; border: 0px;">
                                                     <h3 class="entry-title">
-                                                        <a href="content">Pantai Balekambang</a>
+                                                        <a href="content.php">Pantai Balekambang</a>
                                                     </h3>
                                                     <div class="entry-content">
                                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
@@ -828,10 +843,10 @@
                         <div class="col-md-4 col-sm-4">
                             <h4 style="color: black;"><b>Featured Destination</b></h4>
                             <ul>
-                                <li><a href="content">Mount Bromo</a></li>
-                                <li><a href="content">Coban Rondo</a></li>
-                                <li><a href="content">Lembah Indah</a></li>
-                                <li><a href="content">Balekambang Beach</a></li>
+                                <li><a href="content.php">Mount Bromo</a></li>
+                                <li><a href="content.php">Coban Rondo</a></li>
+                                <li><a href="content.php">Lembah Indah</a></li>
+                                <li><a href="content.php">Balekambang Beach</a></li>
                             </ul>
                         </div>
                         <div class="col-md-4 col-sm-4">
