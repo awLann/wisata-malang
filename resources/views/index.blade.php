@@ -21,13 +21,7 @@
   <link rel="stylesheet" href="assetsindex/css/templatemo-plot-listing.css">
   <link rel="stylesheet" href="assetsindex/css/animated.css">
   <link rel="stylesheet" href="assetsindex/css/owl.css">
-  <!--
 
-TemplateMo 564 Plot Listing
-
-https://templatemo.com/tm-564-plot-listing
-
--->
 </head>
 
 <body>
@@ -52,17 +46,28 @@ https://templatemo.com/tm-564-plot-listing
         <div class="col-12">
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
-            <a href="/" class="logo">
+            <a href="index.php" class="logo">
             </a>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <!-- <li><a href="index.html" class="active">Home</a></li>
-              <li><a href="category.html">Category</a></li>
-              <li><a href="listing.html">Listing</a></li> -->
-              <li><a href="#"><b>SIGN UP</b></a></li>
-              <li><a href="login"><b>LOG IN</b></a></li>
-              <li></li>
+              <?php
+              session_start(); // Start the session
+
+              // Check if the 'username' key exists in the $_SESSION array
+              if (!isset($_SESSION['username'])) {
+              ?>
+                <li><a href="register.php"><b>SIGN UP</b></a></li>
+                <li><a href="login.php"><b>LOG IN</b></a></li>
+              <?php
+              } else {
+
+              ?>
+                <li><a><b>Welcome, <?php echo $_SESSION['username']; ?></b></a></li>
+                <li><a href="logout.php"><b>LOG OUT</b></a></li>
+              <?php
+              }
+              ?>
             </ul>
             <a class='menu-trigger'>
               <span>Menu</span>
@@ -123,14 +128,14 @@ https://templatemo.com/tm-564-plot-listing
         </div>
         <div class="col-lg-10 offset-lg-1">
           <ul class="categories">
-            <li><a href="listing"><span class="icon"><img src="assetsindex/images/pine-tree.png" alt="Food"></span>
+            <li><a href="listing.php"><span class="icon"><img src="assetsindex/images/pine-tree.png" alt="Food"></span>
                 Nature</a></li>
-            <li><a href="listing"><span class="icon"><img src="assetsindex/images/koala (1).png" alt="Home"></span>
+            <li><a href="listing.php"><span class="icon"><img src="assetsindex/images/koala (1).png" alt="Home"></span>
                 Zoo</a></li>
-            <li><a href="listing"><span class="icon"><img src="assetsindex/images/brush.png" alt="Vehicle"></span>
+            <li><a href="listing.php"><span class="icon"><img src="assetsindex/images/brush.png" alt="Vehicle"></span>
                 Museum</a></li>
-            <li><a href="listing"><span class="icon"><img src="assetsindex/images/controller.png" alt="Shopping"></span> Playground</a></li>
-            <li><a href="listing"><span class="icon"><img src="assetsindex/images/food-apple.png" alt="Travel"></span> Garden</a></li>
+            <li><a href="listing.php"><span class="icon"><img src="assetsindex/images/controller.png" alt="Shopping"></span> Playground</a></li>
+            <li><a href="listing.php"><span class="icon"><img src="assetsindex/images/food-apple.png" alt="Travel"></span> Garden</a></li>
           </ul>
         </div>
       </div>
@@ -199,7 +204,7 @@ https://templatemo.com/tm-564-plot-listing
                                   lacinia nulla quis mauris rhoncus, et pharetra velit dignissim. Sed bibendum, elit ac
                                   fringilla venenatis, eros purus fringilla libero, sed mollis mauris lacus sed diam.
                                 </p>
-                                <div class="main-white-button"><a href="content"><i class="fa fa-eye"></i> Discover
+                                <div class="main-white-button"><a href="content.php"><i class="fa fa-eye"></i> Discover
                                     More</a>
                                 </div>
                               </div>
@@ -225,7 +230,7 @@ https://templatemo.com/tm-564-plot-listing
                                   lacinia nulla quis mauris rhoncus, et pharetra velit dignissim. Sed bibendum, elit ac
                                   fringilla venenatis, eros purus fringilla libero, sed mollis mauris lacus sed diam.
                                 </p>
-                                <div class="main-white-button"><a href="content.html"><i class="fa fa-eye"></i> Discover
+                                <div class="main-white-button"><a href="content.php"><i class="fa fa-eye"></i> Discover
                                     More</a>
                                 </div>
                               </div>
@@ -251,7 +256,7 @@ https://templatemo.com/tm-564-plot-listing
                                   lacinia nulla quis mauris rhoncus, et pharetra velit dignissim. Sed bibendum, elit ac
                                   fringilla venenatis, eros purus fringilla libero, sed mollis mauris lacus sed diam.
                                 </p>
-                                <div class="main-white-button"><a href="content.html"><i class="fa fa-eye"></i> Discover
+                                <div class="main-white-button"><a href="content.php"><i class="fa fa-eye"></i> Discover
                                     More
                                   </a></div>
                               </div>
@@ -277,7 +282,7 @@ https://templatemo.com/tm-564-plot-listing
                                   lacinia nulla quis mauris rhoncus, et pharetra velit dignissim. Sed bibendum, elit ac
                                   fringilla venenatis, eros purus fringilla libero, sed mollis mauris lacus sed diam.
                                 </p>
-                                <div class="main-white-button"><a href="content.html"><i class="fa fa-eye"></i> Discover
+                                <div class="main-white-button"><a href="content.php"><i class="fa fa-eye"></i> Discover
                                     More</a>
                                 </div>
                               </div>
@@ -303,7 +308,7 @@ https://templatemo.com/tm-564-plot-listing
                                   lacinia nulla quis mauris rhoncus, et pharetra velit dignissim. Sed bibendum, elit ac
                                   fringilla venenatis, eros purus fringilla libero, sed mollis mauris lacus sed diam.
                                 </p>
-                                <div class="main-white-button"><a rel="nofollow" href="content.html"><i class="fa fa-eye"></i> Discover More</a></div>
+                                <div class="main-white-button"><a rel="nofollow" href="content.php"><i class="fa fa-eye"></i> Discover More</a></div>
                               </div>
                             </div>
                             <div class="col-lg-7 align-self-center">
